@@ -1,43 +1,42 @@
-console.log('App Entry points');
-// /********** REQUIRES **********/
-// require('dotenv').config();
-// const express = require('express');
-// const app = express();
+/********** REQUIRES **********/
+require('dotenv').config();
+const express = require('express');
+const app = express();
 
-// const bodyParser = require('body-parser');
-// const methodOverride = require('method-override');
-// const session = require('express-session');
-// const cors = require('cors');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const cors = require('cors');
 
-// require('./db/db');
+require('./db/db');
 
-// const programsRouter = require('./routers/programs');
+const programsRouter = require('./routers/programs');
 
-// /********** MIDDLEWARE **********/
-// app.use(
-// 	session({
-// 		secret: 'THIS IS A RANDOM STRING SECRET',
-// 		resave: false,
-// 		saveUninitialized: false,
-// 	}),
-// );
+/********** MIDDLEWARE **********/
+app.use(
+	session({
+		secret: 'THIS IS A RANDOM STRING SECRET',
+		resave: false,
+		saveUninitialized: false,
+	}),
+);
 
-// const corsOptions = {
-// 	origin: ['http://localhost:3000'],
-// 	credentials: true,
-// 	optionsSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
+const corsOptions = {
+	origin: ['http://localhost:3000'],
+	credentials: true,
+	optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(methodOverride('_method'));
-// app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
-// /********** ROUTERS/CONTROLLERS **********/
-// app.use('/programs', programsRouter);
+/********** ROUTERS/CONTROLLERS **********/
+app.use('/programs', programsRouter);
 
-// /********** LISTENER **********/
-// app.listen(process.env.PORT, () => {
-// 	console.log(`Server is listening on port ${process.env.PORT}.`);
-// });
+/********** LISTENER **********/
+app.listen(process.env.PORT, () => {
+	console.log(`Server is listening on port ${process.env.PORT}.`);
+});
