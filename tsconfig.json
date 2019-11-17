@@ -23,5 +23,9 @@
 	"exclude": [
 		"node_modules",
 		"prod_node_modules"
+	],
+	"include": [
+		"**/*.ts",
+		"**/*.tsx"
 	]
 }
