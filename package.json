@@ -1,0 +1,53 @@
+{
+  "name": "education-program-api",
+  "version": "1.0.0",
+  "description": "Bryant Cabrera's Education Program API",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Placeholder For Running Test Suite\" && exit 0",
+    "lint": "eslint \"{,!(node_modules|dist)/**/}*.{j,t}s\"",
+    "lint:fix": "npm run lint -- --fix",
+    "build": "tsc -p .",
+    "postinstall": "tsc -p .",
+    "compile": "tsc && node index.js",
+    "dev:server": "nodemon -e ts --exec \"npm run compile\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryantCabrera/education-program-api.git"
+  },
+  "author": "Bryant Cabrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryantCabrera/education-program-api/issues"
+  },
+  "homepage": "https://github.com/BryantCabrera/education-program-api#readme",
+  "lint-staged": {
+    "*.{j,t}s": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix && npm test"
+    }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-plugin-filenames": "^1.3.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {}
+}
