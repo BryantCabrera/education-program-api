@@ -6,7 +6,7 @@
   "scripts": {
     "local": "nodemon index.js",
     "start": "node index.js",
-    "test": "echo \"Placeholder For Running Test Suite\" && exit 0",
+    "test": "npm run build && echo \"Placeholder For Running Test Suite\" && exit 0",
     "lint": "eslint \"{,!(node_modules|dist)/**/}*.{j,t}s\"",
     "lint:fix": "npm run lint -- --fix",
     "build": "tsc -p .",
