@@ -25,6 +25,22 @@ router.get('/', async (req: {}, res: any) => {
 });
 
 //Create Route
+router.post('/', async (req: any, res: any) => {
+	console.log(req.body, 'Program Create Route');
+
+	try {
+		const createdProgram: IProgram = await Program.create(req.body);
+
+		res.json({
+			status: 200,
+			message: 'Program creation successful.',
+			data: createdProgram,
+		});
+	} catch (err) {
+		console.log(err);
+		res.send(err);
+	}
+});
 
 //Show Route
 
