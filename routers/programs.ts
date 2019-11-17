@@ -46,6 +46,7 @@ router.post('/', async (req: any, res: any) => {
 router.get('/:id', async (req: any, res: any) => {
 	try {
 		const foundProgram: IProgram = await Program.findById(req.params.id);
+
 		res.json({
 			status: 200,
 			data: foundProgram,
@@ -57,6 +58,19 @@ router.get('/:id', async (req: any, res: any) => {
 });
 
 //Update Route
+router.put('/:id', async (req: any, res: any) => {
+	try {
+		const updatedProgram = await Program.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+		res.json({
+			status: 200,
+			data: updatedProgram,
+		});
+	} catch (err) {
+		console.log(err);
+		res.send(err);
+	}
+});
 
 //Delete Route
 
