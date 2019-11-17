@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Program = require('../models/program');
 
-// import { IProgram, IProgramsGetResponse } from '../common/interfaces';
+import { IProgram } from '../common/interfaces';
 
 /********** MIDDLEWARE **********/
 
@@ -12,7 +12,7 @@ const Program = require('../models/program');
 //Index Route
 router.get('/', async (req: {}, res: any) => {
 	try {
-		const allPrograms = await Program.find({});
+		const allPrograms: IProgram[] = await Program.find({});
 
 		res.json({
 			status: 200,
