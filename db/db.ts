@@ -1,4 +1,4 @@
-export {};
+export {}; // this is included to prevent TypeScript linting errors
 const mongoose = require('mongoose');
 const connectionString = process.env.DATABASE_URL;
 
