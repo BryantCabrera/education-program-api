@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+import { IProgram } from '../common/interfaces';
 
-const programSchema = new mongoose.Schema({
+const programSchema: IProgram = new mongoose.Schema({
 	school: { type: String, required: true },
 	programName: { type: String, required: true },
 	degreeType: { type: String, required: true },
