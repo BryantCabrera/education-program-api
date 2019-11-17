@@ -10,7 +10,7 @@ import { IProgram } from '../common/interfaces';
 
 /********** ROUTES **********/
 //Index Route
-router.get('/', async (req: {}, res: any) => {
+router.get('/', async (req: any, res: any) => {
 	try {
 		const allPrograms: IProgram[] = await Program.find({});
 
@@ -43,6 +43,18 @@ router.post('/', async (req: any, res: any) => {
 });
 
 //Show Route
+router.get('/:id', async (req: any, res: any) => {
+	try {
+		const foundProgram: IProgram = await Program.findById(req.params.id);
+		res.json({
+			status: 200,
+			data: foundProgram,
+		});
+	} catch (err) {
+		console.log(err);
+		res.send(err);
+	}
+});
 
 //Update Route
 
