@@ -3,7 +3,7 @@ export interface IProgram {
 	programName: string;
 	degreeType: string;
 	delivery: string;
-	annualTuition: string;
+	annualTuition: number;
 	location: string;
 }
 

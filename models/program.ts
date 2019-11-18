@@ -6,7 +6,7 @@ const programSchema: IProgram = new mongoose.Schema({
 	programName: { type: String, required: true },
 	degreeType: { type: String, required: true },
 	delivery: { type: String, required: true },
-	annualTuition: { type: String, required: true },
+	annualTuition: { type: Number, required: true },
 	location: { type: String, required: true },
 });
 
